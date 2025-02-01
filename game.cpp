@@ -3,6 +3,9 @@
 #include "game.h"
 
 int gridX, gridY;
+short sDirection = RIGHT;
+
+int posX=20,posY=20;
 void unit(int x, int y);
 void initGrid(int x, int y)
 {
@@ -43,3 +46,18 @@ void unit(int x, int y)
 
     glEnd();
 }
+
+void drawSnake()
+{
+    if(sDirection==UP)
+        posY++;
+    else if(sDirection==DOWN)
+        posY--;
+    else if(sDirection==RIGHT)
+        posX++;
+    else if(sDirection==LEFT)
+        posX--;
+
+    glRectd(posX,posY,posX+1,posY+1);
+}
+

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1737310691 source:d:\2d_snake_game_project\main.cpp
+1738429925 source:d:\2d_snake_game_project\main.cpp
 	<GL/gl.h>
 	<GL/glut.h>
 	"game.h"
@@ -219,5 +219,10 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1737309392 d:\2d_snake_game_project\game.h
+1738429927 d:\2d_snake_game_project\game.h
+
+1738429922 source:d:\2d_snake_game_project\game.cpp
+	<GL/gl.h>
+	<GL/glut.h>
+	"game.h"
 
