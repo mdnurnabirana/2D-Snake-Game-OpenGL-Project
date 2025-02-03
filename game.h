@@ -6,6 +6,8 @@
 #define RIGHT 2
 #define LEFT -2
 
+#define MAX 60
+
 void initGrid(int, int);
 void drawGrid();
 void drawSnake();

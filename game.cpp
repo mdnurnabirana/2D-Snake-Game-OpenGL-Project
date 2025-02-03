@@ -4,13 +4,17 @@
 #include <cstdlib>
 #include "game.h"
 
+extern int score;
+
 int gridX, gridY;
+int snake_length = 3;
 bool food = true;
 int foodX, foodY;
 short sDirection = RIGHT;
 extern bool gameOver;
 
-int posX=20,posY=20;
+int posX[60]={20, 20, 20},posY[60]={20, 19, 18};
+
 void unit(int x, int y);
 void initGrid(int x, int y)
 {
@@ -65,24 +69,55 @@ void drawFood()
 
 void drawSnake()
 {
-    if(sDirection==UP)
-        posY++;
-    else if(sDirection==DOWN)
-        posY--;
-    else if(sDirection==RIGHT)
-        posX++;
-    else if(sDirection==LEFT)
-        posX--;
+    // Move the body segments
+    for(int i = snake_length-1; i > 0; i--)
+    {
+        posX[i] = posX[i-1];
+        posY[i] = posY[i-1];
+    }
 
-    glColor3f(0.0, 1.0, 0.0);
-    glRectd(posX,posY,posX+1,posY+1);
-    if(posX==0 || posX==gridX-1 || posY==0 || posY==gridY-1)
+    // Move the head
+    if(sDirection == UP)
+        posY[0]++;
+    else if(sDirection == DOWN)
+        posY[0]--;
+    else if(sDirection == RIGHT)
+        posX[0]++;
+    else if(sDirection == LEFT)
+        posX[0]--;
+
+    // Draw the snake
+    for(int i = 0; i < snake_length; i++)
+    {
+        if(i == 0) // Head
+            glColor3f(0.0, 1.0, 0.0);
+        else // Body
+            glColor3f(0.0, 0.0, 1.0);
+
+        glRectd(posX[i], posY[i], posX[i] + 1, posY[i] + 1);
+    }
+
+    // Check collision with walls
+    if(posX[0] == 0 || posX[0] == gridX-1 || posY[0] == 0 || posY[0] == gridY-1)
     {
         gameOver = true;
     }
-    if(posX==foodX && posY==foodY)
+
+    // Check collision with itself
+    for(int j = 1; j < snake_length; j++)
     {
-        food=true;
+        if(posX[j] == posX[0] && posY[j] == posY[0])
+        {
+            gameOver = true;
+        }
+    }
+
+    // Check collision with food
+    if(posX[0] == foodX && posY[0] == foodY)
+    {
+        score++;
+        snake_length++;
+        food = true;
     }
 }
 
