@@ -1,3 +1,4 @@
+#include <windows.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "game.h"
@@ -7,6 +8,7 @@
 #define FPS 10
 
 extern short sDirection;
+bool gameOver=false;
 
 void timer_callback(int);
 void display_callback();
@@ -40,7 +42,13 @@ void display_callback()
     glClear(GL_COLOR_BUFFER_BIT);
     drawGrid();
     drawSnake();
+    drawFood();
     glutSwapBuffers();
+    if(gameOver)
+    {
+        MessageBox(NULL, "Your Score: ", "Game Over", 0);
+        exit(0);
+    }
 }
 
 void reshape_callback(int w, int h)
