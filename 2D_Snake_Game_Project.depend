@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1738574516 source:d:\2d_snake_game_project\main.cpp
+1738730504 source:d:\2d_snake_game_project\main.cpp
 	<windows.h>
 	<GL/gl.h>
 	<GL/glut.h>
-	<stdlib.h>
+	<cstdlib>
+	<cstdio>
+	<fstream>
 	"game.h"
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
@@ -221,9 +223,9 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1738574209 d:\2d_snake_game_project\game.h
+1738679732 d:\2d_snake_game_project\game.h
 
-1738574209 source:d:\2d_snake_game_project\game.cpp
+1738679007 source:d:\2d_snake_game_project\game.cpp
 	<GL/gl.h>
 	<GL/glut.h>
 	<ctime>
