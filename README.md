@@ -95,7 +95,7 @@ cd 2D-Snake-Game-OpenGL-Project
 |---------------------|--------------------------------|
 | Md. Nurnabi Rana   | 📧 mdnurnabirana.cse@gmail.com |
 | Sabrina Akter      | 📧 sabrinaakterchy.cse@gmail.com |
-| Soumitra Dey Dipon | 📧 soumitra532@gmail.com       |
+| Soumitra Dey Dipon | 📧 soumitradev532@gmail.com       |
 
 ---
 
